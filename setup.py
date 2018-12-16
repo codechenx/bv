@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='bv',
-    version='0.1',
+    version='0.1.1',
     author='codechenx',
     author_email='codechenx@gmail.com',
     url='https://github.com/codechenx/bv',
@@ -10,7 +10,7 @@ setup(
     python_requires='>=3.5',
     license="MIT License",
     packages=['bv'],
-    install_requires=[""],
+    install_requires=["chardet"],
     package_data={'bv': ['config/*.cfg']},
     entry_points={
         'console_scripts': [

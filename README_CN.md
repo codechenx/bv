@@ -53,8 +53,8 @@ $ pip install bv
 | k, up             | 移动到上边一行                                  |
 | gg, home          | 移动到顶部                                             |
 | G, end            | 移动到底部                                          |
-| Ctrl-F, page down | 移动到下一页                                    |
-| Ctrl-B, page up   | 移动到上一页                                         |
+| ctrl-f, page down | 移动到下一页                                    |
+| ctrl-b, page up   | 移动到上一页                                         |
 | /                 | 查找                                               |
 | n                 | 移动到下一个查到的的位置上     |
 | p                 | 移动到上一个查到的的位置上    |

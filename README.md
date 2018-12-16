@@ -56,8 +56,8 @@ Not Support
 | k, up             | Moves the cursor up one row                                 |
 | g, home           | Move to the top                                             |
 | G, end            | Move to the bottom                                          |
-| Ctrl-F, page down | Move down by one page                                       |
-| Ctrl-B, page up   | Move up by one page                                         |
+| ctrl-f, page down | Move down by one page                                       |
+| ctrl-b, page up   | Move up by one page                                         |
 | /                 | Seach string                                                |
 | n                 | Move to the next instance of the result from the search     |
 | p                 | Move to the previous instance of the result from the search |
