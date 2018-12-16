@@ -25,7 +25,7 @@ bv is a tool to view the common bioinformatics data file in terminal.The TUI of 
 - Spreadsheet-like view for biological delimited data
 - Vim-like key binding 
 - Support for gzip compressed file
-- Automatically identify delimiter
+- Automatically identify unknown file type's delimiter
 
 
 # To do
@@ -34,8 +34,6 @@ bv is a tool to view the common bioinformatics data file in terminal.The TUI of 
 
 
 # Installation
-
-
 ### Linux and macOS
 
 ```bash
@@ -85,12 +83,9 @@ optional arguments:
   -header {0,1}         0, column number as header;1, first line as header;
   -ss SS                ignore lines with specific prefix
   -sn SN                ignore first n lines
-  -rc RC [RC ...]       only show columns(support for multiple arguments,
-                        separated by space)
-  -hc HC [HC ...]       hide columns(support for multiple arguments, separated
-                        by space)
-  -type {csv,tsv,vcf,maf,gff,gtf,bed}
-                        specify a file type to file manual
+  -rc RC [RC ...]       only show columns(support for multiple arguments, separated by space)
+  -hc HC [HC ...]       hide columns(support for multiple arguments, separated by space)
+  -type {csv,tsv,vcf,maf,gff,gtf,bed} specify a file type to file manual
   --trans               view transposed data
   --compressed          file is compressed?
 ```

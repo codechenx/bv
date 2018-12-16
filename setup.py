@@ -8,6 +8,7 @@ setup(
     url='https://github.com/codechenx/bv',
     description='Data Viewer in Terminal for Bioinformatician',
     python_requires='>=3.5',
+    license="MIT License",
     packages=['bv'],
     install_requires=[""],
     package_data={'bv': ['config/*.cfg']},
