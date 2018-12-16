@@ -2,7 +2,7 @@
 专为生物信息学设计的终端下的数据查看器
 
 [English](README.md)
-# Table of Contents
+# 目录
 
 - [简介](#简介)
 - [特点](#特点)
