@@ -64,7 +64,7 @@ $ pip install bv
 
 # 用法
 
-```bash
+```console
 usage: bv [-h] [-s S] [-header {0,1}] [-ss SS] [-sn SN] [-rc RC [RC ...]]
           [-hc HC [HC ...]] [-type {csv,tsv,vcf,maf,gff,gtf,bed}] [--trans]
           [--compressed]
