@@ -32,5 +32,5 @@ class TestUtils(TestCase):
         assert detect_sep("a;b;c") == ";"
 
     def test_detect_encoding(self):
-        fn = 'data/sample.vcf.gz'
+        fn = 'tests/data/sample.vcf.gz'
         assert "ascii" == detect_encoding(fn)

@@ -1,6 +1,9 @@
 # bv
 Data Viewer in Terminal for Bioinformatician
 
+[![GitHub license](https://img.shields.io/github/license/codechenx/tv.svg)](https://github.com/codechenx/bv/blob/master/LICENSE)
+[![PyPI version](https://badge.fury.io/py/bv.svg)](https://badge.fury.io/py/bv)
+
 [中文版说明](README_CN.md)
 # Table of Contents
 

@@ -1,6 +1,9 @@
 # bv
 专为生物信息学设计的终端下的数据查看器
 
+[![GitHub license](https://img.shields.io/github/license/codechenx/tv.svg)](https://github.com/codechenx/bv/blob/master/LICENSE)
+[![PyPI version](https://badge.fury.io/py/bv.svg)](https://badge.fury.io/py/bv)
+
 [English](README.md)
 # 目录
 

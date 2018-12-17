@@ -7,7 +7,7 @@ from .color_print import *
 from .config import init_configure
 from .io import GeneralReader
 from .ui import TableViewer
-from .utils import get_file_extension, get_simple_config, detect_sep, detect_encoding
+from .utils import get_file_extension, get_simple_config, detect_sep, detect_encoding, trans_data
 
 
 def bv():
@@ -69,6 +69,9 @@ def bv():
             args.rc = [args.rc]
         rm_col = [i for i in range(reader.data.size[1]) if i + 1 not in args.rc]
         reader.data.rm_col(rm_col)
+
+    if args.trans:
+        reader.data.body = trans_data(reader.data.body)
 
     if args.header == 0:
         reader.data.body = [[str(i + 1) for i in range(reader.data.size[1])]] + reader.data.body

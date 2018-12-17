@@ -4,7 +4,7 @@ from bv.config import TypeConfig, init_configure
 
 
 class TestTypeConfig(TestCase):
-    vcf_config_path = "data/config_format.cfg"
+    vcf_config_path = "tests/data/config_format.cfg"
 
     def test_check_format(self):
         vcf_tyepeconfig = TypeConfig(self.vcf_config_path)

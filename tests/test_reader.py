@@ -3,7 +3,7 @@ from unittest import TestCase
 from bv.config import init_configure
 from bv.io import GeneralReader
 
-vcf_path = "data/sample.vcf"
+vcf_path = "tests/data/sample.vcf"
 vcf_config = init_configure().get("vcf")
 
 
