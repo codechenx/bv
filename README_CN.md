@@ -34,7 +34,7 @@ bv 是一个在终端下查看常见生物信息学数据的查看器. bv的终�
 
 # Supported file types
 
-| Filt type | filename extension | description                                                  |
+| File type | filename extension | description                                                  |
 | --------- | ------------------ | ------------------------------------------------------------ |
 | csv       | .csv               | Delimited text file that uses a comma to separate values     |
 | tsv       | .tsv               | Delimited text file that uses a tab to separate values       |

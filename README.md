@@ -34,7 +34,7 @@ bv is a tool to view the common bioinformatics data file in terminal.The TUI of 
 
 # Supported file types
 
-| Filt type | filename extension | description                                                  |
+| File type | filename extension | description                                                  |
 | --------- | ------------------ | ------------------------------------------------------------ |
 | csv       | .csv               | Delimited text file that uses a comma to separate values     |
 | tsv       | .tsv               | Delimited text file that uses a tab to separate values       |
