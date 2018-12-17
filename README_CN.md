@@ -3,6 +3,7 @@
 
 [![GitHub license](https://img.shields.io/github/license/codechenx/tv.svg)](https://github.com/codechenx/bv/blob/master/LICENSE)
 [![PyPI version](https://badge.fury.io/py/bv.svg)](https://badge.fury.io/py/bv)
+[![Build Status](https://travis-ci.org/codechenx/bv.svg?branch=master)](https://travis-ci.org/codechenx/bv)
 
 [English](README.md)
 # 目录

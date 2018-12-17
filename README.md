@@ -3,6 +3,7 @@ Data Viewer in Terminal for Bioinformatician
 
 [![GitHub license](https://img.shields.io/github/license/codechenx/tv.svg)](https://github.com/codechenx/bv/blob/master/LICENSE)
 [![PyPI version](https://badge.fury.io/py/bv.svg)](https://badge.fury.io/py/bv)
+[![Build Status](https://travis-ci.org/codechenx/bv.svg?branch=master)](https://travis-ci.org/codechenx/bv)
 
 [中文版说明](README_CN.md)
 # Table of Contents

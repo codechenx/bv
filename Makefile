@@ -13,4 +13,4 @@ clean-build:
 	rm -rf *.egg-info
 
 test:clean-pyc
-	pytest --verbose --color=yes $(TEST_PATH)
+	python -m pytest --verbose --color=yes $(TEST_PATH)
