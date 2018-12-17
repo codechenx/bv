@@ -32,6 +32,19 @@ bv 是一个在终端下查看常见生物信息学数据的查看器. bv的终�
 - 对于bam和fastaq格式的支持
 
 
+# Supported file types
+
+| Filt type | filename extension | description                                                  |
+| --------- | ------------------ | ------------------------------------------------------------ |
+| csv       | .csv               | Delimited text file that uses a comma to separate values     |
+| tsv       | .tsv               | Delimited text file that uses a tab to separate values       |
+| vcf       | .vcf               | The Variant Call Format (VCF) specifies the format of a text file used in bioinformatics for storing gene sequence variations |
+| bed       | .bed               | A BED file  is a tab-delimited text file that defines a feature track |
+| maf       | .maf               | Mutation Annotation Format (MAF) is a tab-delimited text file with aggregated mutation information from VCF Files and are generated on a project-level |
+| gff       | .gff               | The GFF (General Feature Format) format consists of one line per feature, each containing 9 columns of data, plus optional track definition lines |
+| gtf       | .gtf               | The Gene transfer format (GTF) is a file format used to hold information about gene structure |
+
+
 # 安装
 
 
