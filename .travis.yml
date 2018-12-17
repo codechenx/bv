@@ -1,0 +1,21 @@
+sudo: false
+language: python
+python:
+  - 3.5
+  - 3.6
+  - 3.7
+cache:
+  - pip
+install:
+  - make requirements
+script:
+  - make test
+deploy:
+  provider: pypi
+  user: codechenx
+  password:
+    secure: oOPsA9XH8oZDfSYQJsXMcPUIKL3f3jldycRDH7rYf1a778w9Br9T0KFqTO9Cj2Ii8NUAUZIy2Htpao0bE5JzQLQ0Jra8UJoFh3b9WW9gGTNwGLi/4ZoG8jqE35VtZWqwqbBRgP2oSxdh+32CanT+hO5gd9a8XpTw6coXp29lrAhJkeQCZu6XpmedzU4ZrWdeiyVzr4GMlzPCNBjy5+/DjhSnCcQMD6+zMTmE9Qfe3inJVAq8LsMHToANnBvzpf05rApYLpjpnOlFJapARUp1vmw6laDGfnEVigtCZIxryNFSMooHTXMcLgf+7A6ByicL5Oyjov5nljbpTFHq/ucykJV3s9U/ofbawi/SVzOG4dNSW7zWLESBHANanFDCD44zWOCYLIEjZehGEaQSdSlt1EC1QvgOhtEfwE2cHNw5F75JDdilpXWwh1c28op0ehOZEj2f0AjsuI4Kyd0HREOd49sppDGR0tFDuZKfACc/euX3zl07N9iK3aBP1OarI8mqbATsU4IqfpyugNS4w0L2ewEzLD2cBfQbTRemXXLKpFHYbNZKA/j6jpRDftg5EQnOTQXn77vNbZ1V10uSILPlmNwYYU669J1Lw1BlbAAb+FCRyMJ09BTb4FenfyC+QC7yB2Gvg3ynyIsdl5Cpgkrrgs0GyEMLZGbsbtwwk4Efn4Q=
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
+    python: 3.5
