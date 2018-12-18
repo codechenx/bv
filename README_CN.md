@@ -1,9 +1,10 @@
 # bv
 专为生物信息学设计的终端下的数据查看器
 
-[![GitHub license](https://img.shields.io/github/license/codechenx/tv.svg)](https://github.com/codechenx/bv/blob/master/LICENSE)
+![Python 3.5+](https://img.shields.io/badge/python-3.5+-blue.svg)
 [![PyPI version](https://badge.fury.io/py/bv.svg)](https://badge.fury.io/py/bv)
 [![Build Status](https://travis-ci.org/codechenx/bv.svg?branch=master)](https://travis-ci.org/codechenx/bv)
+[![GitHub license](https://img.shields.io/github/license/codechenx/tv.svg)](https://github.com/codechenx/bv/blob/master/LICENSE)
 
 [English](README.md)
 # 目录
@@ -53,9 +54,17 @@ bv 是一个在终端下查看常见生物信息学数据的查看器. bv的终�
 
 
 ### Linux and macOS
+
+#### pip
 ```bash
 $ pip install bv
 ```
+
+#### conda
+```bash
+$ conda install -c codechenx bv 
+```
+
 
 #### Window
 不支持

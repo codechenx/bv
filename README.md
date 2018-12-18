@@ -1,9 +1,10 @@
 # bv
 Data Viewer in Terminal for Bioinformatician
 
-[![GitHub license](https://img.shields.io/github/license/codechenx/tv.svg)](https://github.com/codechenx/bv/blob/master/LICENSE)
+![Python 3.5+](https://img.shields.io/badge/python-3.5+-blue.svg)
 [![PyPI version](https://badge.fury.io/py/bv.svg)](https://badge.fury.io/py/bv)
 [![Build Status](https://travis-ci.org/codechenx/bv.svg?branch=master)](https://travis-ci.org/codechenx/bv)
+[![GitHub license](https://img.shields.io/github/license/codechenx/tv.svg)](https://github.com/codechenx/bv/blob/master/LICENSE)
 
 [中文版说明](README_CN.md)
 # Table of Contents
@@ -53,8 +54,14 @@ bv is a tool to view the common bioinformatics data file in terminal.The TUI of 
 # Installation
 ### Linux and macOS
 
+#### pip
 ```bash
 $ pip install bv
+```
+
+#### conda
+```bash
+$ conda install -c codechenx bv 
 ```
 
 
