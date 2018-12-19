@@ -152,7 +152,7 @@ command(['^F', 'KEY_NPAGE', 'kDOWN'], 'cursorDown(nVisibleRows); sheet.topRowInd
 command(['^B', 'KEY_PPAGE', 'kUP'], 'cursorDown(-nVisibleRows); sheet.topRowIndex -= nVisibleRows',
         'scroll one page up')
 
-#command('gq', 'vd.sheets.clear()', 'drop all sheets (clean exit)')
+command('gq', 'vd.sheets.clear()', 'drop all sheets (clean exit)')
 
 command('gh', 'sheet.cursorVisibleColIndex = sheet.leftVisibleColIndex = nKeys', 'go to leftmost non-key column')
 command('gk', 'sheet.cursorRowIndex = sheet.topRowIndex = 0', 'go to top row')
@@ -166,7 +166,7 @@ alias('KEY_END', 'gj')
 
 command('^L', 'vd.scr.clear()', 'redraw entire terminal screen')
 command('^G', 'status(statusLine)', 'show info for the current sheet')
-#command('^V', 'status(__version__)', 'show version information')
+command('^V', 'status(__version__)', 'show version information')
 
 command('<',
         'moveToNextRow(lambda row,sheet=sheet,col=cursorCol,val=cursorValue: col.getValue(row) != val, reverse=True) or status("no different value up this column")',
@@ -180,27 +180,27 @@ command('{',
 command('}', 'moveToNextRow(lambda row,sheet=sheet: sheet.isSelected(row)) or status("no next selected row")',
         'move to next selected row')
 
-#command('_', 'cursorCol.toggleWidth(cursorCol.getMaxWidth(visibleRows))',
-#        'toggle this column width between default_width and to fit visible values')
+command('_', 'cursorCol.toggleWidth(cursorCol.getMaxWidth(visibleRows))',
+        'toggle this column width between default_width and to fit visible values')
 command('-', 'cursorCol.width = 0', 'hide this column')
 
-#command('g_', 'for c in visibleCols: c.width = c.getMaxWidth(visibleRows)',
-#        'set width of all columns to fit visible cells')
+command('g_', 'for c in visibleCols: c.width = c.getMaxWidth(visibleRows)',
+        'set width of all columns to fit visible cells')
 
 command('[', 'rows.sort(key = lambda x, col= cursorColIndex: x[col])', 'sort by this column ascending')
 command(']', 'rows.sort(key = lambda x, col= cursorColIndex: x[col], reverse=True)', 'sort by this column descending')
 
-#command('^D', 'options.debug = not options.debug; status("debug " + ("ON" if options.debug else "OFF"))',
-#        'toggle debug mode')
+command('^D', 'options.debug = not options.debug; status("debug " + ("ON" if options.debug else "OFF"))',
+        'toggle debug mode')
 
-#command('^E', 'vd.lastErrors and vd.push(TextSheet("last_error", vd.lastErrors[-1])) or status("no error")',
-#        'open stack trace for most recent error')
+command('^E', 'vd.lastErrors and vd.push(TextSheet("last_error", vd.lastErrors[-1])) or status("no error")',
+        'open stack trace for most recent error')
 
-#command('^^', 'vd.sheets[0], vd.sheets[1] = vd.sheets[1], vd.sheets[0]', 'jump to previous sheet')
+command('^^', 'vd.sheets[0], vd.sheets[1] = vd.sheets[1], vd.sheets[0]', 'jump to previous sheet')
 
-#command('g^E', 'vd.push(TextSheet("last_errors", "\\n\\n".join(vd.lastErrors)))', 'open most recent errors')
+command('g^E', 'vd.push(TextSheet("last_errors", "\\n\\n".join(vd.lastErrors)))', 'open most recent errors')
 
-#command('^R', 'reload(); recalc(); status("reloaded")', 'reload sheet from source')
+command('^R', 'reload(); recalc(); status("reloaded")', 'reload sheet from source')
 
 command('/', 'moveRegex(regex=input("/", type="regex"), columns="cursorCol", backward=False)',
         'search this column forward for regex')
@@ -214,46 +214,46 @@ command('g/', 'moveRegex(regex=input("g/", type="regex"), backward=False, column
 command('g?', 'moveRegex(regex=input("g?", type="regex"), backward=True, columns="visibleCols")',
         'search regex backward in all visible columns')
 
-#command('e', 'cursorCol.setValues([cursorRow], editCell(cursorVisibleColIndex)); sheet.cursorRowIndex += 1',
-#        'edit this cell')
-#command('ge', 'cursorCol.setValues(selectedRows, input("set selected to: ", value=cursorValue))',
-#        'edit this column for all selected rows')
+command('e', 'cursorCol.setValues([cursorRow], editCell(cursorVisibleColIndex)); sheet.cursorRowIndex += 1',
+        'edit this cell')
+command('ge', 'cursorCol.setValues(selectedRows, input("set selected to: ", value=cursorValue))',
+        'edit this column for all selected rows')
 
-#command('d', 'rows.pop(cursorRowIndex)', 'delete this row')
-#command('gd', 'deleteSelected()', 'delete all selected rows')
+command('d', 'rows.pop(cursorRowIndex)', 'delete this row')
+command('gd', 'deleteSelected()', 'delete all selected rows')
 
-#command(' ', 'toggle([cursorRow]); cursorDown(1)', 'toggle select of this row')
+command(' ', 'toggle([cursorRow]); cursorDown(1)', 'toggle select of this row')
 command('s', 'select([cursorRow]); cursorDown(1)', 'select this row')
 command('u', 'unselect([cursorRow]); cursorDown(1)', 'unselect this row')
 
-#command('|', 'selectByIdx(searchRegex(regex=input("|", type="regex"), columns="cursorCol"))',
-#        'select rows by regex matching this columns')
-#command('\\', 'unselectByIdx(searchRegex(regex=input("\\\\", type="regex"), columns="cursorCol"))',
-#       'unselect rows by regex matching this columns')
+command('|', 'selectByIdx(searchRegex(regex=input("|", type="regex"), columns="cursorCol"))',
+        'select rows by regex matching this columns')
+command('\\', 'unselectByIdx(searchRegex(regex=input("\\\\", type="regex"), columns="cursorCol"))',
+        'unselect rows by regex matching this columns')
 
-#command('g ', 'toggle(rows)', 'toggle select of all rows')
-#command('gs', 'select(rows)', 'select all rows')
+command('g ', 'toggle(rows)', 'toggle select of all rows')
+command('gs', 'select(rows)', 'select all rows')
 command('gu', '_selectedRows.clear()', 'unselect all rows')
 
-#command('g|', 'selectByIdx(searchRegex(regex=input("g|", type="regex"), columns="visibleCols"))',
-#        'select rows by regex matching any visible column')
-#command('g\\', 'unselectByIdx(searchRegex(regex=input("g\\\\", type="regex"), columns="visibleCols"))',
-#        'unselect rows by regex matching any visible column')
+command('g|', 'selectByIdx(searchRegex(regex=input("g|", type="regex"), columns="visibleCols"))',
+        'select rows by regex matching any visible column')
+command('g\\', 'unselectByIdx(searchRegex(regex=input("g\\\\", type="regex"), columns="visibleCols"))',
+        'unselect rows by regex matching any visible column')
 
-#command(',', 'select(gatherBy(lambda r,c=cursorCol,v=cursorValue: c.getValue(r) == v), progress=False)',
-#        'select rows matching by this column')
-#command('g,', 'select(gatherBy(lambda r,v=cursorRow: r == v), progress=False)', 'select all rows that match this row')
+command(',', 'select(gatherBy(lambda r,c=cursorCol,v=cursorValue: c.getValue(r) == v), progress=False)',
+        'select rows matching by this column')
+command('g,', 'select(gatherBy(lambda r,v=cursorRow: r == v), progress=False)', 'select all rows that match this row')
 
-#command('"', 'vd.push(sheet.copy("_selected")).rows = list(sheet.selectedRows)',
-#        'push duplicate sheet with only selected rows')
-#command('g"', 'vd.push(sheet.copy())', 'push duplicate sheet')
-#command('V', 'vd.push(TextSheet("%s[%s].%s" % (name, cursorRowIndex, cursorCol.name), cursorValue))',
-#        'view readonly contents of this cell in a new sheet')
+command('"', 'vd.push(sheet.copy("_selected")).rows = list(sheet.selectedRows)',
+        'push duplicate sheet with only selected rows')
+command('g"', 'vd.push(sheet.copy())', 'push duplicate sheet')
+command('V', 'vd.push(TextSheet("%s[%s].%s" % (name, cursorRowIndex, cursorCol.name), cursorValue))',
+        'view readonly contents of this cell in a new sheet')
 
-#command('`', 'vd.push(source if isinstance(source, Sheet) else None)', 'push source sheet')
-#command('S', 'vd.push(SheetsSheet())', 'open Sheet stack')
-#command('C', 'vd.push(ColumnsSheet(sheet))', 'open Columns for this sheet')
-#command('O', 'vd.push(vd.optionsSheet)', 'open Options for this sheet')
+command('`', 'vd.push(source if isinstance(source, Sheet) else None)', 'push source sheet')
+command('S', 'vd.push(SheetsSheet())', 'open Sheet stack')
+command('C', 'vd.push(ColumnsSheet(sheet))', 'open Columns for this sheet')
+command('O', 'vd.push(vd.optionsSheet)', 'open Options for this sheet')
 command('z?', 'vd.push(HelpSheet(name + "_commands", sheet))', 'open command help sheet')
 alias('KEY_F(1)', 'z?')
 

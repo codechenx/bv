@@ -1,0 +1,11 @@
+Metadata-Version: 1.2
+Name: bv
+Version: 0.1.3
+Summary: Data Viewer in Terminal for Bioinformatician
+Home-page: https://github.com/codechenx/bv
+Author: codechenx
+Author-email: codechenx@gmail.com
+License: MIT License
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.5

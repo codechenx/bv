@@ -21,6 +21,13 @@ class TestData(TestCase):
         with pytest.raises(AssertionError):
             new_data.metadata = "something"
 
+    def test_header(self):
+        new_data = Data()
+        new_data.header = ['1', '2', '3']
+        assert ['1', '2', '3'] == new_data.header
+        with pytest.raises(AssertionError):
+            new_data.header = "something"
+
     def test_body(self):
         new_data = Data()
         new_data.body = [['1', '2', '3'], ['4', '5', '6']]
@@ -34,11 +41,12 @@ class TestData(TestCase):
         new_data.type = "vcf"
         new_data.metadata = [['1', '2', '3'], ['4', '5', '6']]
         new_data.body = [['1', '2', '3'], ['4', '5', '6']]
-        new_data.footer = [['1', '2', '3'], ['4', '5', '6']]
+        new_data.header = [['1', '2', '3'], ['4', '5', '6']]
         new_data.empty()
         assert new_data.type == ""
         assert new_data.metadata == []
         assert new_data.body == []
+        assert  new_data.header == []
 
     def test_size(self):
         new_data = Data()
@@ -47,13 +55,17 @@ class TestData(TestCase):
 
     def test_sorted_by_row(self):
         new_data = Data()
+        new_data.header = ['col1', 'col2', 'col3']
         new_data.body = [['1', '2', '3'], ['6', '5', '7'], ['3', '2', '1']]
         new_data.sorted_by_row(0)
         assert [['1', '2', '3'], ['6', '5', '7'], ['3', '2', '1']] == new_data.body
+        assert ['col1', 'col2', 'col3'] == new_data.header
         new_data.sorted_by_row(1)
         assert [['2', '1', '3'], ['5', '6', '7'], ['2', '3', '1']] == new_data.body
+        assert ['col2', 'col1', 'col3'] == new_data.header
         new_data.sorted_by_row(2)
         assert [['3', '2', '1'], ['7', '5', '6'], ['1', '2', '3']] == new_data.body
+        assert ['col3', 'col2', 'col1'] == new_data.header
         with pytest.raises(AssertionError):
             new_data.sorted_by_row(3)
 
@@ -99,16 +111,22 @@ class TestData(TestCase):
 
     def test_rm_col(self):
         new_data = Data()
+        new_data.header = ['col1', 'col2', 'col3']
         new_data.body = [['1', '2', '3'], ['7', '6', '5'], ['3', '2', '1']]
         new_data.rm_col([1, 2])
         new_data_body = new_data.body
-        print(new_data_body)
         assert [['1'], ['7'], ['3']] == new_data_body
+        assert ['col1'] == new_data.header
 
     def test_rm_row(self):
         new_data = Data()
         new_data.body = [['1', '2', '3'], ['7', '6', '5'], ['3', '2', '1']]
         new_data.rm_row([1, 2])
         new_data_body = new_data.body
-        print(new_data_body)
         assert [['1', '2', '3']] == new_data_body
+    
+    def test_covert_possible_col_numberic(self):
+        new_data = Data()
+        new_data.body = [['1', '2', '3'], ['7', '6', '5'], ['3', 'a', '1']]
+        new_data.covert_possible_col_numberic()
+        assert [[1, '2', 3], [7, '6', 5], [3, 'a', 1]] == new_data.body

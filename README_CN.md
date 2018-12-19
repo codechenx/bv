@@ -70,29 +70,44 @@ $ conda install -c codechenx bv
 不支持
 
 # 键绑定
-| 快捷键             | 说明                                                 |
+| Key               | description                                                 |
 | ----------------- | ----------------------------------------------------------- |
-| q                 | 退出                                                       |
-| h, left arrow     | 移动到左边一列                           |
-| l, right arrow    | 移动到右边一列                          |
-| j, down arrow     | 移动到下边一行                                |
-| k, up             | 移动到上边一行                                  |
-| gg, home          | 移动到顶部                                             |
-| G, end            | 移动到底部                                          |
-| ctrl-f, page down | 移动到下一页                                    |
-| ctrl-b, page up   | 移动到上一页                                         |
-| /                 | 查找                                               |
-| n                 | 移动到下一个查到的的位置上     |
-| p                 | 移动到上一个查到的的位置上    |
-| d                 | 删除当前行                                          |
-| s, space          | 高亮当前行                                       |
-| u                 | 清除当前行的高亮 
+| q                 | 退出                                                      |
+| h, left arrow     | 向左移动一列        |
+| l, right arrow    | 向右移动一列           |
+| j, down arrow     | 向下移动一行               |
+| k, up             | 向上移动一行                 |
+| gg, gk         | 移动到顶部                           |
+| G, gj          | 移动到底部                     |
+| gh | 移动到最左列 |
+| gl | 移动到最右列 |
+| ctrl-f, page down | 移动到下一页             |
+| ctrl-b, page up | 移动到上一页                 |
+| < | 移动到跟当前具有相同数值的上一个位置 |
+| > | 移动到跟当前具有相同数值的下一个位置 |
+| /                 | 查找(仅所在列，向下) |
+| ？ | 查找(仅所在列，向上) |
+| g/ | 全局查找(向下) |
+| g? | 全局查找(向上) |
+| n                 | 移动到下一个查到的的位置上 |
+| p                 | 移动到上一个查到的的位置上 |
+| s, space          | 选中该行                   |
+| u                 | 取消选中       |
+| gu | 取消所有的选中 |
+| { | 移动到上一个选中行 |
+| } | 移动到下一个选中行 |
+| [ | 递增排序 |
+| ] | 递减排序 |
+| - | 隐藏该列 |
+| ctrl-l | 重新绘制屏幕 |
+| ctrl-g | 显示信息 |
+| z?, F1 | 显示快捷键帮助 |
 
 # 用法
 
 ```console
-usage: bv [-h] [-s S] [-header {0,1}] [-ss SS] [-sn SN] [-rc RC [RC ...]]
-          [-hc HC [HC ...]] [-type {csv,tsv,vcf,maf,gff,gtf,bed}] [--trans]
+usage: bv [-h] [-s S] [-ss SS] [-sn SN] [-rc RC [RC ...]] [-hc HC [HC ...]]
+          [-type {csv,tsv,vcf,maf,gff,gtf,bed}] [--noheader] [--trans]
           [--compressed]
           filename
 
@@ -103,12 +118,12 @@ positional arguments:
 optional arguments:
   -h, --help            显示帮助信息
   -s S                  指定分隔符
-  -header {0,1}         0, 把列数当做固定头行;1, 把第一行当做固定头行;
   -ss SS                忽略带特殊前缀的行
   -sn SN                忽略前N行数据
   -rc RC [RC ...]       只展示指定的行(支持多个参数 ,参数间以空格分隔)
   -hc HC [HC ...]       隐藏指定的行(支持多个参数 ,参数间以空格分隔)
   -type {csv,tsv,vcf,maf,gff,gtf,bed} 手动指定文件类型
+  --noheader            不把第一行当做header行
   --trans               显示转置后的数据
   --compressed          文件是否是压缩的标志
 ```

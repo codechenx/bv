@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='bv',
-    version='0.1.2',
+    version='0.1.3',
     author='codechenx',
     author_email='codechenx@gmail.com',
     url='https://github.com/codechenx/bv',

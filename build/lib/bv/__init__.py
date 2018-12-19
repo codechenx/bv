@@ -28,7 +28,6 @@ def bv():
     parser.add_argument('--noheader', action='store_true',help="not to use fist line as header")
     parser.add_argument('--trans', action='store_true', help="view transposed data")
     parser.add_argument('--compressed', action='store_true', help="file is compressed?")
-    parser.add_argument('--version', action='version', version='bv 0.1.3')
 
     args = parser.parse_args()
 

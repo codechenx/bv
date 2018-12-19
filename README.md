@@ -9,11 +9,17 @@ Data Viewer in Terminal for Bioinformatician
 [中文版说明](README_CN.md)
 # Table of Contents
 
-- [Description](#description)
+- [bv](#bv)
+- [Table of Contents](#table-of-contents)
+  ​    - [Description](#description)
 - [Feature](#feature)
 - [To do](#to-do)
+- [Supported file types](#supported-file-types)
 - [Installation](#installation)
-  - [Linux and macOS](#Linux-and-macOS)
+    - [Linux and macOS](#linux-and-macos)
+      - [pip](#pip)
+      - [conda](#conda)
+      - [Window](#window)
 - [Key binding](#key-binding)
 - [Usage](#usage)
 
@@ -73,43 +79,60 @@ Not Support
 # Key binding
 | Key               | description                                                 |
 | ----------------- | ----------------------------------------------------------- |
-| q                 | Quit                                                        |
-| h, left arrow     | Moves the cursor left  one column                           |
-| l, right arrow    | Moves the cursor right  one column                          |
-| j, down arrow     | Moves the cursor down one row                               |
-| k, up             | Moves the cursor up one row                                 |
-| g, home           | Move to the top                                             |
-| G, end            | Move to the bottom                                          |
-| ctrl-f, page down | Move down by one page                                       |
-| ctrl-b, page up   | Move up by one page                                         |
-| /                 | Seach string                                                |
-| n                 | Move to the next instance of the result from the search     |
-| p                 | Move to the previous instance of the result from the search |
-| d                 | Delete current row                                          |
-| s, space          | Highlight current row                                       |
-| u                 | Clear highlight of current row                              |
+| q                 | quit                                                        |
+| h, left arrow     | go one column left                           |
+| l, right arrow    | go one column right                          |
+| j, down arrow     | go one row down                               |
+| k, up             | go one row up                                |
+| gg, gk         | go to top row                                |
+| G, gj          | go to bottom row                          |
+| gh | go to leftmost column |
+| gl | go to rightmost column |
+| ctrl-f, page down | scroll one page down                   |
+| ctrl-b, page up | scroll one page up                       |
+| < | move up to previous value in this column |
+| > | move down to next value in this column |
+| /                 | search this column forward for regex            |
+| ？ | search this column backward for regex |
+| g/ | search regex forward in all visible columns |
+| g? | search regex backward in all visible columns |
+| n                 | go to next match |
+| p                 | go to previous match |
+| s, space          | select this row                        |
+| u                 | unselect this row             |
+| gu | unselect all rows |
+| { | move to previous selected row |
+| } | move to next selected row |
+| [ | sort by this column ascending |
+| ] | sort by this column descending |
+| - | hide this column |
+| ctrl-l | redraw entire terminal screen |
+| ctrl-g | show info for the current sheet |
+| z?, F1 | open command help sheet |
 
 # Usage
 
 ```console
-usage: bv [-h] [-s S] [-header {0,1}] [-ss SS] [-sn SN] [-rc RC [RC ...]]
-          [-hc HC [HC ...]] [-type {csv,tsv,vcf,maf,gff,gtf,bed}] [--trans]
+usage: bv [-h] [-s S] [-ss SS] [-sn SN] [-rc RC [RC ...]] [-hc HC [HC ...]]
+          [-type {csv,tsv,vcf,maf,gff,gtf,bed}] [--noheader] [--trans]
           [--compressed]
           filename
 
 positional arguments:
-
   filename              file name
 
 optional arguments:
   -h, --help            show this help message and exit
   -s S                  delimiter
-  -header {0,1}         0, column number as header;1, first line as header;
   -ss SS                ignore lines with specific prefix
   -sn SN                ignore first n lines
-  -rc RC [RC ...]       only show columns(support for multiple arguments, separated by space)
-  -hc HC [HC ...]       hide columns(support for multiple arguments, separated by space)
-  -type {csv,tsv,vcf,maf,gff,gtf,bed} specify a file type to file manual
+  -rc RC [RC ...]       only show columns(support for multiple arguments,
+                        separated by space)
+  -hc HC [HC ...]       hide columns(support for multiple arguments, separated
+                        by space)
+  -type {csv,tsv,vcf,maf,gff,gtf,bed}
+                        specify a file type to file manual
+  --noheader            not to use fist line as header
   --trans               view transposed data
   --compressed          file is compressed?
 ```
