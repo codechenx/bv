@@ -35,6 +35,12 @@ class Reader:
 
     @abc.abstractmethod
     def load_file(self, m_path, m_config=None, compressed=False, m_header=True):
+        """
+        :param m_path: str, file path
+        :param m_config: TypeConfig(), file processing configure
+        :param compressed: bool, check if compressed
+        :return:
+        """
         raise Exception("implement load_file is required")
 
     def update_config(self, m_config):
@@ -82,3 +88,14 @@ class GeneralReader(Reader):
             self.data.covert_possible_col_numberic()
         except FileNotFoundError:
             raise Exception("File is not exists")
+
+class ExcelReader(Reader):
+    def load_file(self, m_path, m_config=None, compressed=False, m_header=True):
+        """
+        :param m_path: str, file path
+        :param m_config: TypeConfig(), file processing configure
+        :param compressed: bool, check if compressed
+        :return:
+        """
+        pass
+        

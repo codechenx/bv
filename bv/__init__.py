@@ -25,7 +25,7 @@ def bv():
                         help="hide columns(support for multiple arguments, separated by space)")
     parser.add_argument('-type', choices=['csv', 'tsv', 'vcf', 'maf', 'gff', 'gtf', 'bed'],
                         help="specify a file type to file manual")
-    parser.add_argument('--noheader', action='store_true',help="not to use fist line as header")
+    parser.add_argument('--noheader', action='store_true',help="don't use fist line as header")
     parser.add_argument('--trans', action='store_true', help="view transposed data")
     parser.add_argument('--compressed', action='store_true', help="file is compressed?")
     parser.add_argument('--version', action='version', version='bv 0.1.3')

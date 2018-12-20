@@ -27,10 +27,10 @@ class TestUtils(TestCase):
         assert ("txt", False) == get_file_extension("/mnt/test.txt")
         assert ("vcf", True) == get_file_extension("/mnt/test.vcf.gz")
 
-    def test_detect_sep(self):
-        assert detect_sep("a,b,c") == ","
-        assert detect_sep("a;b;c") == ";"
+    def test_detect_file_sep(self):
+        fn = "tests/data/sample.csv"
+        assert detect_file_sep(fn) == ","
 
-    def test_detect_encoding(self):
+    def test_detect_file_encoding(self):
         fn = 'tests/data/sample.vcf.gz'
-        assert "ascii" == detect_encoding(fn)
+        assert "ascii" == detect_file_encoding(fn)
