@@ -1,9 +1,0 @@
-{
-    "python.pythonPath": "/Users/chenx/.local/share/virtualenvs/bv-fDqwu2zv/bin/python",
-    "python.unitTest.pyTestArgs": [
-        "tests"
-    ],
-    "python.unitTest.unittestEnabled": false,
-    "python.unitTest.nosetestsEnabled": false,
-    "python.unitTest.pyTestEnabled": true
-}
