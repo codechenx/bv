@@ -43,6 +43,7 @@ bv 是一个在终端下查看常见生物信息学数据的查看器. bv的终�
 | --------- | ------------------ | ------------------------------------------------------------ |
 | csv       | .csv               | Delimited text file that uses a comma to separate values     |
 | tsv       | .tsv               | Delimited text file that uses a tab to separate values       |
+| excel     | .xlsx              | Microsoft Excel is a spreadsheet developed by Microsoft       |
 | vcf       | .vcf               | The Variant Call Format (VCF) specifies the format of a text file used in bioinformatics for storing gene sequence variations |
 | bed       | .bed               | A BED file  is a tab-delimited text file that defines a feature track |
 | maf       | .maf               | Mutation Annotation Format (MAF) is a tab-delimited text file with aggregated mutation information from VCF Files and are generated on a project-level |
@@ -107,7 +108,7 @@ $ conda install -c codechenx bv
 
 ```console
 usage: bv [-h] [-s S] [-ss SS] [-sn SN] [-rc RC [RC ...]] [-hc HC [HC ...]]
-          [-type {csv,tsv,vcf,maf,gff,gtf,bed}] [--noheader] [--trans]
+          [-type {csv,tsv,vcf,maf,gff,gtf,bed,xlsx}] [--noheader] [--trans]
           [--compressed]
           filename
 
@@ -122,7 +123,7 @@ optional arguments:
   -sn SN                忽略前N行数据
   -rc RC [RC ...]       只展示指定的行(支持多个参数 ,参数间以空格分隔)
   -hc HC [HC ...]       隐藏指定的行(支持多个参数 ,参数间以空格分隔)
-  -type {csv,tsv,vcf,maf,gff,gtf,bed} 手动指定文件类型
+  -type {csv,tsv,vcf,maf,gff,gtf,bed,xlsx} 手动指定文件类型
   --noheader            不把第一行当做header行
   --trans               显示转置后的数据
   --compressed          文件是否是压缩的标志

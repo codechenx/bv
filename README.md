@@ -49,6 +49,7 @@ bv is a tool to view the common bioinformatics data file in terminal.The TUI of 
 | --------- | ------------------ | ------------------------------------------------------------ |
 | csv       | .csv               | Delimited text file that uses a comma to separate values     |
 | tsv       | .tsv               | Delimited text file that uses a tab to separate values       |
+| excel     | .xlsx              | Microsoft Excel is a spreadsheet developed by Microsoft       |
 | vcf       | .vcf               | The Variant Call Format (VCF) specifies the format of a text file used in bioinformatics for storing gene sequence variations |
 | bed       | .bed               | A BED file  is a tab-delimited text file that defines a feature track |
 | maf       | .maf               | Mutation Annotation Format (MAF) is a tab-delimited text file with aggregated mutation information from VCF Files and are generated on a project-level |
@@ -114,7 +115,7 @@ Not Support
 
 ```console
 usage: bv [-h] [-s S] [-ss SS] [-sn SN] [-rc RC [RC ...]] [-hc HC [HC ...]]
-          [-type {csv,tsv,vcf,maf,gff,gtf,bed}] [--noheader] [--trans]
+          [-type {csv,tsv,vcf,maf,gff,gtf,bed,xlsx}] [--noheader] [--trans]
           [--compressed]
           filename
 
