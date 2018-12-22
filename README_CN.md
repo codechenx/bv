@@ -3,6 +3,8 @@
 
 ![Python 3.5+](https://img.shields.io/badge/python-3.5+-blue.svg)
 [![PyPI version](https://badge.fury.io/py/bv.svg)](https://badge.fury.io/py/bv)
+[![Anaconda-Server Badge](https://anaconda.org/codechenx/bv/badges/version.svg)](https://anaconda.org/codechenx/bv)
+[![Anaconda-Server Badge](https://anaconda.org/codechenx/bv/badges/platforms.svg)](https://anaconda.org/codechenx/bv)
 [![Build Status](https://travis-ci.org/codechenx/bv.svg?branch=master)](https://travis-ci.org/codechenx/bv)
 [![GitHub license](https://img.shields.io/github/license/codechenx/tv.svg)](https://github.com/codechenx/bv/blob/master/LICENSE)
 

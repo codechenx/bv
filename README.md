@@ -3,6 +3,8 @@ Data Viewer in Terminal for Bioinformatician
 
 ![Python 3.5+](https://img.shields.io/badge/python-3.5+-blue.svg)
 [![PyPI version](https://badge.fury.io/py/bv.svg)](https://badge.fury.io/py/bv)
+[![Anaconda-Server Badge](https://anaconda.org/codechenx/bv/badges/version.svg)](https://anaconda.org/codechenx/bv)
+[![Anaconda-Server Badge](https://anaconda.org/codechenx/bv/badges/platforms.svg)](https://anaconda.org/codechenx/bv)
 [![Build Status](https://travis-ci.org/codechenx/bv.svg?branch=master)](https://travis-ci.org/codechenx/bv)
 [![GitHub license](https://img.shields.io/github/license/codechenx/tv.svg)](https://github.com/codechenx/bv/blob/master/LICENSE)
 
@@ -36,7 +38,7 @@ bv is a tool to view the common bioinformatics data file in terminal.The TUI of 
 - Vim-like key binding 
 - Support for gzip compressed file
 - Automatically identify unknown file type's delimiter
-
+- User-defined format processing configure
 
 # To do
 
@@ -137,3 +139,5 @@ optional arguments:
   --trans               view transposed data
   --compressed          file is compressed?
 ```
+
+# 
