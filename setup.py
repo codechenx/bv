@@ -10,7 +10,7 @@ setup(
     python_requires='>=3.5',
     license="MIT License",
     packages=['bv'],
-    install_requires=["chardet"],
+    install_requires=["chardet","openpyxl"],
     package_data={'bv': ['config/*.cfg']},
     entry_points={
         'console_scripts': [
