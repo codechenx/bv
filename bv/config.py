@@ -12,8 +12,12 @@ class TypeConfig:
     :cvar _keyword: keyword of configure file
     :ivar _config: ConfigParser
     """
-    _keyword = {"Format": ["name", "extension", "description"], "Metadata": ["regex", "description"],
-                "Body": ["sep", "description"], "Ignore": ["regex", "description"]}
+    _keyword = {
+        "Format": ["name", "extension", "description"],
+        "Metadata": ["regex", "description"],
+        "Body": ["sep", "description"],
+        "Ignore": ["regex", "description"]
+    }
 
     def __init__(self, config_path=None):
         """
@@ -41,7 +45,8 @@ class TypeConfig:
         sections = self._keyword.keys()
         params = list(itertools.chain(*self._keyword.values()))
         # necessary keyword
-        if ("name" not in self._config["Format"].keys()) and ("extension" not in self._config["Format"].keys()):
+        if ("name" not in self._config["Format"].keys()) and (
+                "extension" not in self._config["Format"].keys()):
             return False
         for key in self._config.sections():
             if key not in sections:
@@ -149,24 +154,35 @@ def init_configure():
         from bv.default import CONFIG_DIR, CONFIG_USER_DIR
 
         type_config_list = []
-        CONFIG_DIR_REAL_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), CONFIG_DIR)
-        CONFIG_USER_DIR_REAL_PATH = CONFIG_USER_DIR
-        cfg_files = [f for f in os.listdir(CONFIG_DIR_REAL_PATH) if
-                     os.path.isfile(os.path.join(CONFIG_DIR_REAL_PATH, f)) and f.endswith(".cfg")]
-        if os.path.exists(CONFIG_USER_DIR_REAL_PATH):
-            cfg_user_files = [f for f in os.listdir(CONFIG_USER_DIR_REAL_PATH) if
-                              os.path.isfile(os.path.join(CONFIG_USER_DIR_REAL_PATH, f)) and f.endswith(".cfg")]
-
+        CONFIG_DIR_REAL_PATH = os.path.join(
+            os.path.dirname(os.path.realpath(__file__)), CONFIG_DIR)
+        CONFIG_USER_DIR_REAL_PATH = os.path.join(os.environ['HOME'],
+                                                 CONFIG_USER_DIR)
+        cfg_files = [
+            f for f in os.listdir(CONFIG_DIR_REAL_PATH)
+            if os.path.isfile(os.path.join(CONFIG_DIR_REAL_PATH, f))
+            and f.endswith(".cfg")
+        ]
+        if os.path.isdir(CONFIG_USER_DIR_REAL_PATH):
+            cfg_user_files = [
+                f for f in os.listdir(CONFIG_USER_DIR_REAL_PATH)
+                if os.path.isfile(os.path.join(CONFIG_USER_DIR_REAL_PATH, f))
+                and f.endswith(".cfg")
+            ]
         else:
             cfg_user_files = []
-
         cfg_files_set = set(cfg_files + cfg_user_files)
         for fn in cfg_files_set:
             if fn in cfg_user_files:
-                type_config_list.append(TypeConfig(os.path.join(CONFIG_USER_DIR_REAL_PATH, fn)))
+                type_config_list.append(
+                    TypeConfig(os.path.join(CONFIG_USER_DIR_REAL_PATH, fn)))
             else:
-                type_config_list.append(TypeConfig(os.path.join(CONFIG_DIR_REAL_PATH, fn)))
+                type_config_list.append(
+                    TypeConfig(os.path.join(CONFIG_DIR_REAL_PATH, fn)))
 
-        return {type_config.format_config.get("extension"): type_config for type_config in type_config_list}
+        return {
+            type_config.format_config.get("extension"): type_config
+            for type_config in type_config_list
+        }
     except Exception:
         raise Exception("initialize all file type configure error")

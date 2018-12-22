@@ -126,3 +126,31 @@ def detect_file_encoding(fn):
         rawdata = f.read()
     encoding = chardet.detect(rawdata)
     return encoding.get('encoding')
+
+class Color:
+    BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE = range(8)
+
+def has_colours(stream):
+    """ 
+    check the console can display color
+    :param stream:
+    """
+    if not hasattr(stream, "isatty"):
+        return False
+    if not stream.isatty():
+        return False  # auto color only on TTYs
+    try:
+        import curses
+        curses.setupterm()
+        return curses.tigetnum("colors") > 2
+    except:
+
+        return False
+
+def colorprint(text, colour=Color.WHITE):
+    import sys
+    if has_colours(sys.stdout):
+        seq = "\x1b[1;%dm" % (30 + colour) + text + "\x1b[0m"
+        sys.stdout.write(seq)
+    else:
+        sys.stdout.write(text)

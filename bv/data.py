@@ -37,7 +37,7 @@ class Data:
     @property
     def header(self):
         return self._header
-    
+
     @header.setter
     def header(self, m_header):
         assert isinstance(m_header, list)
@@ -75,7 +75,7 @@ class Data:
         trans_body_data = trans_data(self._body)
 
         assert isinstance(col_num, int) and col_num < len(trans_body_data)
-        self._body.sort(key = lambda x, col= col_num: x[col])
+        self._body.sort(key=lambda x, col=col_num: x[col])
 
     def sorted_by_row(self, row_num):
         """
@@ -85,17 +85,16 @@ class Data:
         """
 
         assert isinstance(row_num, int) and row_num < self.size[0]
-        
+
         # sort body
         header_index = list([i for i in range(len(self._header))])
         trans_dat = trans_data([header_index] + self._body)
-        trans_dat.sort(key = lambda x, col= row_num + 1: x[col])
+        trans_dat.sort(key=lambda x, col=row_num + 1: x[col])
         dat = trans_data(trans_dat)
         self._body = dat[1:]
         header_index = dat[0]
         # sort header
         self._header = [self._header[i] for i in header_index]
-
 
     def get_sorted_row(self, row_num):
         """
@@ -150,10 +149,16 @@ class Data:
 
         temp = []
         for row in self._body:
-            new_row = [value for index, value in enumerate(row) if index not in col_num]
+            new_row = [
+                value for index, value in enumerate(row)
+                if index not in col_num
+            ]
             temp.append(new_row)
         self._body = temp
-        self._header = [value for index, value in enumerate(self._header) if index not in col_num] 
+        self._header = [
+            value for index, value in enumerate(self._header)
+            if index not in col_num
+        ]
 
     def rm_row(self, row_num):
         """
@@ -165,9 +170,12 @@ class Data:
 
         assert all(map(lambda x: x < self.size[0], row_num))
 
-        new_body = [value for index, value in enumerate(self._body) if index not in row_num]
+        new_body = [
+            value for index, value in enumerate(self._body)
+            if index not in row_num
+        ]
         self._body = new_body
-    
+
     def covert_possible_col_numberic(self):
         """
         covert column to numberic if possible

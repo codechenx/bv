@@ -222,7 +222,7 @@ command('g?', 'moveRegex(regex=input("g?", type="regex"), backward=True, columns
 #command('d', 'rows.pop(cursorRowIndex)', 'delete this row')
 #command('gd', 'deleteSelected()', 'delete all selected rows')
 
-#command(' ', 'toggle([cursorRow]); cursorDown(1)', 'toggle select of this row')
+command(' ', 'toggle([cursorRow]); cursorDown(1)', 'toggle select of this row')
 command('s', 'select([cursorRow]); cursorDown(1)', 'select this row')
 command('u', 'unselect([cursorRow]); cursorDown(1)', 'unselect this row')
 

@@ -34,7 +34,8 @@ class Reader:
         return self._config
 
     @abc.abstractmethod
-    def load_file(self, m_path, m_config=None, compressed=False, m_header=True):
+    def load_file(self, m_path, m_config=None, compressed=False,
+                  m_header=True):
         """
         :param m_path: str, file path
         :param m_config: TypeConfig(), file processing configure
@@ -48,7 +49,8 @@ class Reader:
 
 
 class GeneralReader(Reader):
-    def load_file(self, m_path, m_config=None, compressed=False, m_header=True):
+    def load_file(self, m_path, m_config=None, compressed=False,
+                  m_header=True):
         """
         tabular-like file  reader
 
@@ -71,7 +73,8 @@ class GeneralReader(Reader):
             sep = self._config.body_config.get("sep", None)
             sep = tabstr_to_tab(sep)  # translate "\\t" to "\t" if possible
             for line in f:
-                line = line.decode(encoding).strip() if compressed else line.strip()
+                line = line.decode(
+                    encoding).strip() if compressed else line.strip()
                 # ignore line
                 if ignore_regex and re.match(ignore_regex, line):
                     continue
@@ -81,18 +84,22 @@ class GeneralReader(Reader):
                     continue
                 # add header data if True
                 if m_header:
-                    self.data.header = list(csv.reader([line], delimiter=sep))[0]
+                    self.data.header = list(csv.reader([line],
+                                                       delimiter=sep))[0]
                     m_header = False
                     continue
                 # add body data
-                self.data.body.append(list(csv.reader([line], delimiter=sep))[0])
+                self.data.body.append(
+                    list(csv.reader([line], delimiter=sep))[0])
             f.close()
             self.data.covert_possible_col_numberic()
         except FileNotFoundError:
-            raise Exception("File is not exists")
+            raise Exception("File dose not exists")
+
 
 class ExcelReader(Reader):
-    def load_file(self, m_path, m_config=None, compressed=False, m_header=True):
+    def load_file(self, m_path, m_config=None, compressed=False,
+                  m_header=True):
         """
         excel file reader
 
@@ -104,24 +111,27 @@ class ExcelReader(Reader):
         import openpyxl
 
         assert isinstance(m_path, str) and isinstance(m_config, TypeConfig)
-        
+
         self._path, self._config = m_path, m_config
+        
+        try:
+            wb = openpyxl.load_workbook(self._path)
+            sheet = wb.get_active_sheet()
+            max_col = sheet.max_column
+            max_row = sheet.max_row
 
-        wb = openpyxl.load_workbook(self._path)
-        sheet = wb.get_active_sheet()
-        max_col = sheet.max_column
-        max_row = sheet.max_row
-
-        for i in range(1,max_row+1):
-            # add header data if True
-            if m_header:
-                self.data.header = []
-                for j in range(1,max_col+1):
-                    self.data.header.append(sheet.cell(row=i,column=j).value)
-                m_header = False
-                continue
-            # add body data
-            row = []
-            for j in range(1,max_col+1):
-                row.append(sheet.cell(row=i,column=j).value)
-            self.data.body.append(row)
+            for i in range(1, max_row + 1):
+                # add header data if True
+                if m_header:
+                    self.data.header = []
+                    for j in range(1, max_col + 1):
+                        self.data.header.append(sheet.cell(row=i, column=j).value)
+                    m_header = False
+                    continue
+                # add body data
+                row = []
+                for j in range(1, max_col + 1):
+                    row.append(sheet.cell(row=i, column=j).value)
+                self.data.body.append(row)
+        except FileNotFoundError:
+            raise Exception("File dose not exists")
