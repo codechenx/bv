@@ -14,6 +14,9 @@ Data Viewer in Terminal for Bioinformatician
 - [bv](#bv)
 - [Table of Contents](#table-of-contents)
   ​    - [Description](#description)
+- [bv](#bv)
+- [Table of Contents](#table-of-contents)
+      - [Description](#description)
 - [Feature](#feature)
 - [To do](#to-do)
 - [Supported file types](#supported-file-types)
@@ -24,6 +27,7 @@ Data Viewer in Terminal for Bioinformatician
       - [Window](#window)
 - [Key binding](#key-binding)
 - [Usage](#usage)
+- [](#)
 
 #### Description
 
@@ -43,6 +47,7 @@ bv is a tool to view the common bioinformatics data file in terminal.The TUI of 
 # To do
 
 - support for bam and fastaq format
+- view data from url 
 
 
 # Supported file types
