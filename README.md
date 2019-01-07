@@ -10,10 +10,6 @@ Data Viewer in Terminal for Bioinformatician
 
 [中文版说明](README_CN.md)
 # Table of Contents
-
-- [bv](#bv)
-- [Table of Contents](#table-of-contents)
-  ​    - [Description](#description)
 - [bv](#bv)
 - [Table of Contents](#table-of-contents)
       - [Description](#description)
