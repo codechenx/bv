@@ -1,7 +1,7 @@
 # bv
 专为生物信息学设计的终端下的数据查看器
 
-![Python 3.5+](https://img.shields.io/badge/python-3.5+-blue.svg)
+![Python 3.5+](https://img.shields.io/badge/python-3.5|3.6-blue.svg)
 [![PyPI version](https://badge.fury.io/py/bv.svg)](https://badge.fury.io/py/bv)
 [![Anaconda-Server Badge](https://anaconda.org/codechenx/bv/badges/version.svg)](https://anaconda.org/codechenx/bv)
 [![Anaconda-Server Badge](https://anaconda.org/codechenx/bv/badges/platforms.svg)](https://anaconda.org/codechenx/bv)
